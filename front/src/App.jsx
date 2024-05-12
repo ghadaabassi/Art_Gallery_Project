@@ -2,8 +2,22 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import InputWithLabel from "./components/InputWithLable";
 
-// Getting the data from the api
+// Dislaying the data from the api
 function Artwork({ artwork }) {
+  useEffect(() => {
+    const fetchArtworkDetails = async () => {
+      try {
+        const response = await fetch(artwork.api_link);
+        const { data } = await response.json();
+        setArtworks(data);
+      } catch (error) {
+        console.error("Error fetching artwork details:", error);
+      }
+    };
+
+    fetchArtworkDetails();
+  }, [artwork.api_link]);
+
   return (
     <div>
       <h2>{artwork.title}</h2>
@@ -25,7 +39,7 @@ function App() {
     localStorage.getItem("search") || "Art"
   );
 
-  const API_ENDPOINT = "https://api.artic.edu/api/v1/artworks";
+  const API_ENDPOINT = "https://api.artic.edu/api/v1/artworks/search?q=";
 
   //update the search term
   const handleSearch = (event) => {
@@ -36,10 +50,9 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${API_ENDPOINT}/search?q=${searchTerm}`);
-        const { data } = await response.json();
-        setArtworks(data);
-        const count = data.length;
+        const response = await fetch(`${API_ENDPOINT}${searchTerm}`);
+        //const { data } = await response.json();
+        //setArtworks(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
