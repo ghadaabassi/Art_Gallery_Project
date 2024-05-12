@@ -36,7 +36,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${API_ENDPOINT}${searchTerm}`);
+        const response = await fetch(`${API_ENDPOINT}/search?q=${searchTerm}`);
         const { data } = await response.json();
         setArtworks(data);
         const count = data.length;
