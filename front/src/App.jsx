@@ -1,17 +1,7 @@
 import './App.css'
 import React, { useState, useEffect } from 'react';
+import InputWithLabel from './components/InputWithLable';
 
-
-
-
-
-
-
-const [searchTerm,setsearchTerm]= useState(localStorage.getItem('search') || 'Art');
-//update the search term
-const handleSearch=(event)=>{
-  setsearchTerm(event.target.value);
-}
 
 
 
@@ -35,6 +25,13 @@ function Artwork({ artwork }) {
 
 function App() {
   const [artworks, setArtworks] = useState([]);
+  const [searchTerm,setsearchTerm]= useState(localStorage.getItem('search') || 'Art');
+
+
+    //update the search term
+    const handleSearch=(event)=>{
+      setsearchTerm(event.target.value);
+    }
 
     useEffect(() => {
 
@@ -70,7 +67,7 @@ useEffect(()=>
                               value={searchTerm}
                               onInputChange={handleSearch}>
         <strong>Search an artwork :</strong></InputWithLabel>
-                
+            
                 {
                 //Mapping the fetched data
                 artworks.map(
