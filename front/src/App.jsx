@@ -3,29 +3,18 @@ import React, { useState, useEffect } from "react";
 import InputWithLabel from "./components/InputWithLable";
 
 // Dislaying the data from the api
+
 function Artwork({ artwork }) {
-  useEffect(() => {
-    const fetchArtworkDetails = async () => {
-      try {
-        const response = await fetch(artwork.api_link);
-        const { data } = await response.json();
-        setArtworks(data);
-      } catch (error) {
-        console.error("Error fetching artwork details:", error);
-      }
-    };
-
-    fetchArtworkDetails();
-  }, [artwork.api_link]);
-
   return (
     <div>
-      <h2>{artwork.title}</h2>
-      <p>Artist: {artwork.artist_display}</p>
+      <h2>{artwork.data.title}</h2>
+      <p>Artist: {artwork.data.artist_display}</p>
       <p>Date: {artwork.date_display}</p>
-      {artwork.image_id && (
+      <p>Place of Origin: {artwork.data.place_of_origin}</p>
+      <p>Dimensions: {artwork.data.dimensions}</p>
+      {artwork.data.image_id && (
         <img
-          src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}
+          src={`https://www.artic.edu/iiif/2/${artwork.data.image_id}/full/843,/0/default.jpg`}
           alt={artwork.title}
         />
       )}
@@ -51,10 +40,25 @@ function App() {
     const fetchData = async () => {
       try {
         const response = await fetch(`${API_ENDPOINT}${searchTerm}`);
-        //const { data } = await response.json();
-        //setArtworks(data);
+        const { data } = await response.json();
+
+        const artworksData = [];
+
+        for (const artwork of data) {
+          try {
+            const artworkResponse = await fetch(artwork.api_link);
+
+            const artworkData = await artworkResponse.json();
+            console.log("DATA:  " + artworkData.data.title);
+
+            artworks.push(artworkData);
+          } catch (error) {
+            console.error("Error fetching artwork details:", error);
+          }
+        }
+        // Set the state with the fetched artwork details
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching search data:", error);
       }
     };
     fetchData();
@@ -81,6 +85,7 @@ function App() {
         {
           //Mapping the fetched data
           artworks.map((artwork) => (
+            //console.log(artwork);
             <Artwork key={artwork.id} artwork={artwork} />
           ))
         }
