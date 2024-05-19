@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/ArtCard.css";
 import React, { useState, useEffect } from "react";
 import InputWithLabel from "./components/InputWithLable";
 
@@ -6,11 +6,11 @@ import InputWithLabel from "./components/InputWithLable";
 
 function Artwork({ artwork }) {
   return (
-    <div>
+    <div className="artwork-card">
       <h2>{artwork.title}</h2>
       <p>Artist: {artwork.artist_display}</p>
       <p>Date: {artwork.date_display}</p>
-   
+
       {artwork.image_id && (
         <img
           src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}

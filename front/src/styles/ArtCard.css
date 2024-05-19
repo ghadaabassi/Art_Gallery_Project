@@ -1,0 +1,27 @@
+.artwork-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    max-width: 300px;
+    margin: 20px;
+    text-align: center;
+    background-color: #fff;
+  }
+  
+  .artwork-card h2 {
+    font-size: 1.5em;
+    margin: 0 0 10px;
+  }
+  
+  .artwork-card p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .artwork-card img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  
