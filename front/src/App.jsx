@@ -1,25 +1,7 @@
 import "./styles/ArtCard.css";
 import React, { useState, useEffect } from "react";
 import InputWithLabel from "./components/InputWithLable";
-
-// Dislaying the data from the api
-
-function Artwork({ artwork }) {
-  return (
-    <div className="artwork-card">
-      <h2>{artwork.title}</h2>
-      <p>Artist: {artwork.artist_display}</p>
-      <p>Date: {artwork.date_display}</p>
-
-      {artwork.image_id && (
-        <img
-          src={`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`}
-          alt={artwork.title}
-        />
-      )}
-    </div>
-  );
-}
+import Artwork from "./components/ArtWork";
 
 function App() {
   const [artworks, setArtworks] = useState([]);
