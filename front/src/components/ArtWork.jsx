@@ -1,5 +1,5 @@
-import React from 'react';
-import './Artwork.css';
+import React from "react";
+import ".././styles/ArtCard.css";
 
 const Artwork = ({ artwork }) => {
   return (
