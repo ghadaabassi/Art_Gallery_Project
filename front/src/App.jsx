@@ -2,6 +2,7 @@ import "./styles/ArtCard.css";
 import React, { useState, useEffect } from "react";
 import InputWithLabel from "./components/InputWithLable";
 import Artwork from "./components/ArtWork";
+import "./App.css";
 
 function App() {
   const [artworks, setArtworks] = useState([]);
@@ -9,7 +10,7 @@ function App() {
     localStorage.getItem("search") || "Art"
   );
 
-  const API_ENDPOINT = "https://api.artic.edu/api/v1/artworks";
+  const API = "https://api.artic.edu/api/v1/artworks";
 
   //update the search term
   const handleSearch = (event) => {
@@ -20,12 +21,9 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${API_ENDPOINT}`);
+        const response = await fetch(`${API}`);
         const { data } = await response.json();
-
         setArtworks(data);
-
-        // Set the state with the fetched artwork details
       } catch (error) {
         console.error("Error fetching search data:", error);
       }
@@ -53,10 +51,12 @@ function App() {
 
         {
           //Mapping the fetched data
-          artworks.map((artwork) => (
-            //console.log(artwork);
-            <Artwork key={artwork.id} artwork={artwork} />
-          ))
+
+          <div className="artwork-container">
+            {artworks.map((artwork) => (
+              <Artwork key={artwork.id} artwork={artwork} />
+            ))}
+          </div>
         }
       </div>
     </>
