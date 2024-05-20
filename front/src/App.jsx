@@ -38,17 +38,42 @@ function App() {
 
   return (
     <>
+      <header>
+        <nav className="navbar navbar-dark bg-dark">
+          <div className="container">
+            <a className="navbar-brand" href="#">
+              <img
+                src="\src\assets\images\logo.png"
+                alt="Logo"
+                width="30"
+                height="30"
+                className="d-inline-block align-top mr-2"
+              />
+              Art Gallery
+            </a>
+            <form className="form-inline">
+              {/*The Reusable Component*/}
+              <InputWithLabel
+                id="search"
+                value={searchTerm}
+                onInputChange={handleSearch}
+              >
+                <strong>Search :</strong>
+              </InputWithLabel>
+
+              <button
+                className="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+        </nav>
+      </header>
+
       <h1>Artworks from the Art Institute of Chicago</h1>
       <div>
-        {/*The Reusable Component*/}
-        <InputWithLabel
-          id="search"
-          value={searchTerm}
-          onInputChange={handleSearch}
-        >
-          <strong>Search an artwork :</strong>
-        </InputWithLabel>
-
         {
           //Mapping the fetched data
 
