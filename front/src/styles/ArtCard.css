@@ -1,7 +1,7 @@
 .artwork-card {
   border: 1px solid #b69696;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 19px rgba(0, 0, 0, 0.2);
   padding: 16px;
   max-width: 300px;
   margin: 20px;
@@ -35,4 +35,8 @@
 /* hover Effect image */
 .artwork-card:hover img {
   opacity: 0.7;
+}
+/* make the card pop-up */
+.artwork-card:hover {
+  margin: 12px;
 }
