@@ -1,11 +1,9 @@
-
 .btn-dark-red {
-    background-color: darkred;
-    color: white;
-    border: none;
-  }
-  
-  .btn-dark-red:hover {
-    background-color: #a50000; /* Slightly darker red for hover effect */
-  }
-  
+  background-color: darkred;
+  color: white;
+  border: none;
+}
+
+.btn-dark-red:hover {
+  background-color: #a50000; /* Slightly darker red for hover effect */
+}
