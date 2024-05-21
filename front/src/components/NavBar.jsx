@@ -1,6 +1,7 @@
 import InputWithLabel from "./InputWithLable";
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap for the navBar
+import "../styles/NavBar.css";
 
 const NavBar = () => {
   const [artworks, setArtworks] = useState([]);
@@ -36,10 +37,8 @@ const NavBar = () => {
             >
               <strong>Search :</strong>
             </InputWithLabel>
-            <button
-              className="btn btn-outline-success my-2 my-sm-0"
-              type="submit"
-            >
+
+            <button className="btn-dark-red" type="submit">
               Search
             </button>
           </form>
