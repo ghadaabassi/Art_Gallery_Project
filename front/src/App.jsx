@@ -34,7 +34,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <h1 className="textStyling">
+      <h1 className="textStyling redHover">
         Artworks from the Art Institute of Chicago
       </h1>
       <div>

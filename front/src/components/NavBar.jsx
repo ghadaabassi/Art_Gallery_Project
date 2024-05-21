@@ -2,6 +2,7 @@ import InputWithLabel from "./InputWithLable";
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap for the navBar
 import "../styles/NavBar.css";
+import "../styles/ArtCard.css";
 
 const NavBar = () => {
   const [artworks, setArtworks] = useState([]);
@@ -19,9 +20,11 @@ const NavBar = () => {
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container">
           <a
-            className="navbar-brand textStyling"
+            className="navbar-brand textStyling redHover"
             href="https://www.artic.edu/collection"
             style={{ fontSize: "27px" }}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <img
               src="\src\assets\images\logo.png"
