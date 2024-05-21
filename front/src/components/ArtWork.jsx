@@ -4,7 +4,7 @@ import ".././styles/ArtCard.css";
 const Artwork = ({ artwork }) => {
   return (
     <div className="artwork-card">
-      <h2>{artwork.title}</h2>
+      <h2 className="textStyling">{artwork.title}</h2>
       <p>Artist: {artwork.artist_display}</p>
       <p>Date: {artwork.date_display}</p>
       {artwork.image_id && (

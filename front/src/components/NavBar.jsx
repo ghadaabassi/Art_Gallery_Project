@@ -16,9 +16,12 @@ const NavBar = () => {
 
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container">
-          <a className="navbar-brand" href="https://www.artic.edu/collection">
+          <a
+            className="navbar-brand textStyling"
+            href="https://www.artic.edu/collection"
+          >
             <img
               src="\src\assets\images\logo.png"
               alt="Logo"
@@ -35,7 +38,7 @@ const NavBar = () => {
               value={searchTerm}
               onInputChange={handleSearch}
             >
-              <strong>Search :</strong>
+              Search :
             </InputWithLabel>
 
             <button className="btn-dark-red" type="submit">

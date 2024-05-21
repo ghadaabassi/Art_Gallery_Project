@@ -40,3 +40,9 @@
 .artwork-card:hover {
   margin: 12px;
 }
+
+/* italic */
+
+.textStyling {
+  font-style: italic;
+}

@@ -12,8 +12,6 @@ function App() {
 
   const API = "https://api.artic.edu/api/v1/artworks";
 
-
-
   // update the fetched data
   useEffect(() => {
     const fetchData = async () => {
@@ -36,7 +34,9 @@ function App() {
   return (
     <>
       <NavBar />
-      <h1>Artworks from the Art Institute of Chicago</h1>
+      <h1 className="textStyling">
+        Artworks from the Art Institute of Chicago
+      </h1>
       <div>
         {
           //Mapping the fetched data
