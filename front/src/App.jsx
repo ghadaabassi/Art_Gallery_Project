@@ -1,8 +1,8 @@
 import "./styles/ArtCard.css";
 import React, { useState, useEffect } from "react";
-import InputWithLabel from "./components/InputWithLable";
 import Artwork from "./components/ArtWork";
 import "./App.css";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [artworks, setArtworks] = useState([]);
@@ -12,10 +12,7 @@ function App() {
 
   const API = "https://api.artic.edu/api/v1/artworks";
 
-  //update the search term
-  const handleSearch = (event) => {
-    setsearchTerm(event.target.value);
-  };
+
 
   // update the fetched data
   useEffect(() => {
@@ -38,40 +35,7 @@ function App() {
 
   return (
     <>
-      <header>
-        <nav className="navbar navbar-dark bg-dark">
-          <div className="container">
-            <a className="navbar-brand" href="#">
-              <img
-                src="\src\assets\images\logo.png"
-                alt="Logo"
-                width="30"
-                height="30"
-                className="d-inline-block align-top mr-2"
-              />
-              Art Gallery
-            </a>
-            <form className="form-inline">
-              {/*The Reusable Component*/}
-              <InputWithLabel
-                id="search"
-                value={searchTerm}
-                onInputChange={handleSearch}
-              >
-                <strong>Search :</strong>
-              </InputWithLabel>
-
-              <button
-                className="btn btn-outline-success my-2 my-sm-0"
-                type="submit"
-              >
-                Search
-              </button>
-            </form>
-          </div>
-        </nav>
-      </header>
-
+      <NavBar />
       <h1>Artworks from the Art Institute of Chicago</h1>
       <div>
         {
