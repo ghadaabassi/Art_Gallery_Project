@@ -46,3 +46,7 @@
 .textStyling {
   font-style: italic;
 }
+
+.redHover:hover {
+  color: #a50000;
+}

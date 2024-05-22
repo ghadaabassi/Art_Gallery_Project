@@ -12,28 +12,13 @@ const NavBar = ({ id, value, onInputChange, onSearch }) => {
     <header>
       <nav className="navbar navbar-expand-lg navbar-light ">
         <div className="container">
-          <div className="mt-4">
-            <Canvas
-              style={{
-                height: "200px",
-                //backgroundColor: "blue",
-                padding: 0,
-                margin: 0,
-              }}
-            >
-              <OrbitControls />
-              <ambientLight intensity={0.5} />
-              <pointLight position={[30, 30, 30]} />
-              <Flower />
-            </Canvas>
-          </div>
-
           <a
             className="navbar-brand textStyling"
             href="https://www.artic.edu/collection"
             style={{ fontSize: "27px" }}
             target="_blank"
             rel="noopener noreferrer"
+    
           >
             <img
               src="\src\assets\images\logo.png"

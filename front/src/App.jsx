@@ -66,7 +66,7 @@ function App() {
         onInputChange={handleSearch}
         onSearch={handleSearchResult}
       />
-      <h1 className="textStyling redHover">
+      <h1 className="textStyling redHover redHover">
         Artworks from the Art Institute of Chicago
       </h1>
       <div>
