@@ -1,7 +1,7 @@
 import React from "react";
 import ".././styles/ArtCard.css";
 
-const Artwork = ({ artwork }) => {
+const Artwork = ({ artwork, onRemoveItem }) => {
   return (
     <div className="artwork-card">
       <h2 className="textStyling">{artwork.title}</h2>
@@ -18,6 +18,10 @@ const Artwork = ({ artwork }) => {
           className="artwork-image"
         />
       )}
+
+      <button type="button" onClick={() => onRemoveItem(artwork)}>
+        Dismiss
+      </button>
     </div>
   );
 };

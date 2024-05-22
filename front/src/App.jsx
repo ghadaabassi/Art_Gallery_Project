@@ -1,8 +1,10 @@
 import "./styles/ArtCard.css";
+import "./styles/NavBar.css";
 import React, { useState, useEffect } from "react";
 import Artwork from "./components/ArtWork";
 import "./App.css";
 import NavBar from "./components/NavBar";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [artworks, setArtworks] = useState([]);
@@ -11,6 +13,31 @@ function App() {
   );
 
   const API = "https://api.artic.edu/api/v1/artworks";
+
+  const searchedArt = artworks.filter((a) =>
+    a.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const handleSearchResult = (event) => {
+    const filtered = artworks.filter((a) =>
+      a.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    console.log(filtered);
+    setArtworks(filtered);
+  };
+
+  // update the search term
+  const handleSearch = (event) => {
+    setsearchTerm(event.target.value);
+  };
+
+  // remove the item when clicking the button
+  const handleRemoveArt = (item) => {
+    const newStories = artworks.filter((story) => item.id !== story.id);
+    setArtworks(newStories);
+    console.log(newStories);
+    console.log(artworks);
+  };
 
   // update the fetched data
   useEffect(() => {
@@ -33,23 +60,38 @@ function App() {
 
   return (
     <>
-      <NavBar />
-      <h1 className="textStyling">
+      <NavBar
+        id="search"
+        value={searchTerm}
+        onInputChange={handleSearch}
+        onSearch={handleSearchResult}
+      />
+      <h1 className="textStyling redHover">
         Artworks from the Art Institute of Chicago
       </h1>
       <div>
         {
-          //Mapping the fetched data
-
           <div className="artwork-container">
-            {artworks.map((artwork) => (
-              <Artwork key={artwork.id} artwork={artwork} />
-            ))}
+            <Artworks artworks={artworks} onRemoveItem={handleRemoveArt} />
           </div>
         }
       </div>
     </>
   );
 }
+
+const Artworks = ({ artworks, onRemoveItem }) => (
+  <ul className="artwork-container">
+    {/*Mapping the fetched data*/}
+    {artworks.map((item) => (
+      <Artwork
+        className="artwork-container"
+        key={item.id}
+        artwork={item}
+        onRemoveItem={onRemoveItem}
+      />
+    ))}
+  </ul>
+);
 
 export default App;
