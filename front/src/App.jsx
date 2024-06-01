@@ -39,8 +39,6 @@ function App() {
     console.log(artworks);
   };
 
-  
-
   // update the fetched data
   useEffect(() => {
     const fetchData = async () => {
@@ -73,7 +71,7 @@ function App() {
       </h1>
       <div>
         {
-          <div className="artwork-container">
+          <div>
             <Artworks artworks={artworks} onRemoveItem={handleRemoveArt} />
           </div>
         }
@@ -86,12 +84,7 @@ const Artworks = ({ artworks, onRemoveItem }) => (
   <ul className="artwork-container">
     {/*Mapping the fetched data*/}
     {artworks.map((item) => (
-      <Artwork
-        className="artwork-container"
-        key={item.id}
-        artwork={item}
-        onRemoveItem={onRemoveItem}
-      />
+      <Artwork key={item.id} artwork={item} onRemoveItem={onRemoveItem} />
     ))}
   </ul>
 );

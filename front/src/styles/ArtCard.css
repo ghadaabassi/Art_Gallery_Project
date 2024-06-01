@@ -50,3 +50,13 @@
 .redHover:hover {
   color: #a50000;
 }
+
+.remove-btn {
+  margin-top: 7px;
+  border-color: black;
+}
+
+.remove-btn:hover {
+  color: #a50000;
+  border-color: #a50000;
+}

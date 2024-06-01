@@ -19,8 +19,12 @@ const Artwork = ({ artwork, onRemoveItem }) => {
         />
       )}
 
-      <button type="button" onClick={() => onRemoveItem(artwork)}>
-        Dismiss
+      <button
+        class="remove-btn"
+        type="button"
+        onClick={() => onRemoveItem(artwork)}
+      >
+        Remove
       </button>
     </div>
   );
