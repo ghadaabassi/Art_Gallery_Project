@@ -47,7 +47,7 @@ const NavBar = ({ id, value, onInputChange, onSearch }) => {
               <OrbitControls />
               <ambientLight intensity={0.5} />
               <pointLight position={[30, 30, 30]} />
-              {/* flower rotation*/}
+              {/* flower position  rotation*/}
               <group rotation={[Math.PI / 2, 6, 0]}>
                 <Flower />
               </group>

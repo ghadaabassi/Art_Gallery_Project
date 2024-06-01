@@ -14,15 +14,11 @@ function App() {
 
   const API = "https://api.artic.edu/api/v1/artworks";
 
-  const searchedArt = artworks.filter((a) =>
-    a.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   const handleSearchResult = (event) => {
     const filtered = artworks.filter((a) =>
       a.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    console.log(filtered);
+    console.log(filtered.length);
     setArtworks(filtered);
   };
 

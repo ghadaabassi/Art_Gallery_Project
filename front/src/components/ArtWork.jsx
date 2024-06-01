@@ -20,7 +20,7 @@ const Artwork = ({ artwork, onRemoveItem }) => {
       )}
 
       <button
-        class="remove-btn"
+        className="remove-btn"
         type="button"
         onClick={() => onRemoveItem(artwork)}
       >
