@@ -41,8 +41,7 @@
   margin: 10px;
 }
 
-/* italic */
-
+/* italic style */
 .textStyling {
   font-style: italic;
 }
@@ -51,11 +50,13 @@
   color: #a50000;
 }
 
+/*button style*/
 .remove-btn {
   margin-top: 7px;
   border-color: black;
 }
 
+/*Button hover*/
 .remove-btn:hover {
   color: #a50000;
   border-color: #a50000;

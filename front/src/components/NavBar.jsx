@@ -12,6 +12,9 @@ const NavBar = ({ id, value, onInputChange, onSearch }) => {
     <header>
       <nav className="navbar navbar-expand-lg navbar-light ">
         <div className="container">
+        {
+              //add the url to chicago art gallery official page
+            }
           <a
             className="navbar-brand textStyling"
             href="https://www.artic.edu/collection"
@@ -19,6 +22,9 @@ const NavBar = ({ id, value, onInputChange, onSearch }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
+            {
+              //add the logo
+            }
             <img
               src="\src\assets\images\logo.png"
               alt="Logo"
@@ -43,7 +49,7 @@ const NavBar = ({ id, value, onInputChange, onSearch }) => {
               <pointLight position={[30, 30, 30]} />
               <group rotation={[Math.PI / 2, 6, 0]}>
                 {" "}
-                {/* Adjust rotation here */}
+                {/* flower rotation*/}
                 <Flower />
               </group>
             </Canvas>
