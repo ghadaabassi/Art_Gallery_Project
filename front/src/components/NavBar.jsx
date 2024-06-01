@@ -1,6 +1,6 @@
 import InputWithLabel from "./InputWithLable";
 import React, { useState, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap for the navBar
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/NavBar.css";
 import "../styles/ArtCard.css";
 import { Canvas } from "@react-three/fiber";
@@ -18,7 +18,6 @@ const NavBar = ({ id, value, onInputChange, onSearch }) => {
             style={{ fontSize: "27px" }}
             target="_blank"
             rel="noopener noreferrer"
-    
           >
             <img
               src="\src\assets\images\logo.png"
@@ -30,6 +29,26 @@ const NavBar = ({ id, value, onInputChange, onSearch }) => {
             />
             Art Gallery
           </a>
+
+          <div className="mt-4">
+            <Canvas
+              style={{
+                height: "200px",
+                padding: 0,
+                margin: 0,
+              }}
+            >
+              <OrbitControls />
+              <ambientLight intensity={0.5} />
+              <pointLight position={[30, 30, 30]} />
+              <group rotation={[Math.PI / 2, 6, 0]}>
+                {" "}
+                {/* Adjust rotation here */}
+                <Flower />
+              </group>
+            </Canvas>
+          </div>
+
           <div>
             {/*The Reusable Component*/}
             <InputWithLabel id={id} value={value} onInputChange={onInputChange}>

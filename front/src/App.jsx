@@ -31,13 +31,15 @@ function App() {
     setsearchTerm(event.target.value);
   };
 
-  // remove the item when clicking the button
+  // remove the item by clicking the button
   const handleRemoveArt = (item) => {
     const newStories = artworks.filter((story) => item.id !== story.id);
     setArtworks(newStories);
     console.log(newStories);
     console.log(artworks);
   };
+
+  
 
   // update the fetched data
   useEffect(() => {
