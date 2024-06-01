@@ -11,7 +11,7 @@ function App() {
   const [searchTerm, setsearchTerm] = useState(
     localStorage.getItem("search") || "Art"
   );
-  const [resultCount, setResultCount] = useState();
+  const [resultCount, setResultCount] = useState(0);
 
   const API = "https://api.artic.edu/api/v1/artworks";
 
