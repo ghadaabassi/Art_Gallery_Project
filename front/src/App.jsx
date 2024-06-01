@@ -11,6 +11,7 @@ function App() {
   const [searchTerm, setsearchTerm] = useState(
     localStorage.getItem("search") || "Art"
   );
+  const [resultCount, setResultCount] = useState();
 
   const API = "https://api.artic.edu/api/v1/artworks";
 
@@ -19,6 +20,7 @@ function App() {
       a.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     console.log(filtered.length);
+    setResultCount(filtered.length);
     setArtworks(filtered);
   };
 
@@ -61,7 +63,9 @@ function App() {
         value={searchTerm}
         onInputChange={handleSearch}
         onSearch={handleSearchResult}
+        resultCount={resultCount}
       />
+
       <h1 className="textStyling redHover redHover">
         Artworks from the Art Institute of Chicago
       </h1>
