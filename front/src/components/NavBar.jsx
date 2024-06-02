@@ -30,7 +30,7 @@ const NavBar = ({
             rel="noopener noreferrer"
           >
             {
-              //add the logo
+              //add the logo to the navbar
             }
             <img
               src="\src\assets\images\logo.png"

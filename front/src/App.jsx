@@ -8,10 +8,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [artworks, setArtworks] = useState([]);
-  const [searchTerm, setsearchTerm] = useState("");
-
+  const [searchTerm, setsearchTerm] = useState(
+    localStorage.getItem("search") || "art"
+  );
   const [isError, setError] = useState(false);
   const [resultCount, setResultCount] = useState(0);
+  
 
   const API = "https://api.artic.edu/api/v1/artworks";
 
