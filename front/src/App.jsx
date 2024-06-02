@@ -11,17 +11,21 @@ function App() {
   const [searchTerm, setsearchTerm] = useState(
     localStorage.getItem("search") || "Art"
   );
+  const [isLoading, setLoading] = useState(false);
+  const [isError, setError] = useState(false);
   const [resultCount, setResultCount] = useState(0);
 
   const API = "https://api.artic.edu/api/v1/artworks";
 
   const handleSearchResult = (event) => {
+    setLoading(true);
     const filtered = artworks.filter((a) =>
       a.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    console.log(filtered.length);
+
     setResultCount(filtered.length);
     setArtworks(filtered);
+    setLoading(false);
   };
 
   // update the search term
@@ -33,8 +37,6 @@ function App() {
   const handleRemoveArt = (item) => {
     const newStories = artworks.filter((story) => item.id !== story.id);
     setArtworks(newStories);
-    console.log(newStories);
-    console.log(artworks);
   };
 
   // update the fetched data
@@ -45,6 +47,7 @@ function App() {
         const { data } = await response.json();
         setArtworks(data);
       } catch (error) {
+        setError(true);
         console.error("Error fetching search data:", error);
       }
     };
@@ -70,11 +73,12 @@ function App() {
         Artworks from the Art Institute of Chicago
       </h1>
       <div>
-        {
-          <div>
-            <Artworks artworks={artworks} onRemoveItem={handleRemoveArt} />
-          </div>
-        }
+        {isError && <p>Something went wrong ...</p>}
+        {isLoading ? (
+          <p>Loading ...</p>
+        ) : (
+          <Artworks artworks={artworks} onRemoveItem={handleRemoveArt} />
+        )}
       </div>
     </>
   );
