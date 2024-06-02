@@ -8,9 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [artworks, setArtworks] = useState([]);
-  const [searchTerm, setsearchTerm] = useState(
-    localStorage.getItem("search") || "Art"
-  );
+  const [searchTerm, setsearchTerm] = useState("");
 
   const [isError, setError] = useState(false);
   const [resultCount, setResultCount] = useState(0);
@@ -29,6 +27,7 @@ function App() {
   // update the search term
   const handleSearch = (event) => {
     setsearchTerm(event.target.value);
+    console.log(searchTerm);
   };
 
   // remove the item by clicking the button
@@ -65,15 +64,21 @@ function App() {
         onInputChange={handleSearch}
         onSearch={handleSearchResult}
         resultCount={resultCount}
+        searchTerm={searchTerm}
       />
 
       <h1 className="textStyling redHover redHover">
         Artworks from the Art Institute of Chicago
       </h1>
+
       <div>
         {isError && <p>Something went wrong ...</p>}
 
-        <Artworks artworks={artworks} onRemoveItem={handleRemoveArt} />
+        <Artworks
+          artworks={artworks}
+          onRemoveItem={handleRemoveArt}
+          searchTerm={searchTerm}
+        />
       </div>
     </>
   );

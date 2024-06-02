@@ -7,7 +7,14 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Flower from "./Flower";
 
-const NavBar = ({ id, value, onInputChange, onSearch, resultCount }) => {
+const NavBar = ({
+  id,
+  value,
+  onInputChange,
+  onSearch,
+  resultCount,
+  searchTerm,
+}) => {
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light ">
@@ -61,7 +68,9 @@ const NavBar = ({ id, value, onInputChange, onSearch, resultCount }) => {
             <button
               style={{ margin: "20px" }}
               className="btn-dark-red "
+              type="button"
               onClick={onSearch}
+              disabled={!searchTerm}
             >
               Search
             </button>
