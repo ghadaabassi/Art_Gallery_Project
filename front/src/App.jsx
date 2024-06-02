@@ -13,7 +13,6 @@ function App() {
   );
   const [isError, setError] = useState(false);
   const [resultCount, setResultCount] = useState(0);
-  
 
   const API = "https://api.artic.edu/api/v1/artworks";
 
