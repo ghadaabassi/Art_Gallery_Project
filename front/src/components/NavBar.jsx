@@ -64,7 +64,7 @@ const NavBar = ({
             <InputWithLabel id={id} value={value} onInputChange={onInputChange}>
               Search :
             </InputWithLabel>
-
+            {/*The button is disabled when there search term is empty */}
             <button
               style={{ margin: "20px" }}
               className="btn-dark-red "
