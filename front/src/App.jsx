@@ -11,21 +11,19 @@ function App() {
   const [searchTerm, setsearchTerm] = useState(
     localStorage.getItem("search") || "Art"
   );
-  const [isLoading, setLoading] = useState(false);
+
   const [isError, setError] = useState(false);
   const [resultCount, setResultCount] = useState(0);
 
   const API = "https://api.artic.edu/api/v1/artworks";
 
   const handleSearchResult = (event) => {
-    setLoading(true);
     const filtered = artworks.filter((a) =>
       a.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     setResultCount(filtered.length);
     setArtworks(filtered);
-    setLoading(false);
   };
 
   // update the search term
@@ -74,11 +72,8 @@ function App() {
       </h1>
       <div>
         {isError && <p>Something went wrong ...</p>}
-        {isLoading ? (
-          <p>Loading ...</p>
-        ) : (
-          <Artworks artworks={artworks} onRemoveItem={handleRemoveArt} />
-        )}
+
+        <Artworks artworks={artworks} onRemoveItem={handleRemoveArt} />
       </div>
     </>
   );
