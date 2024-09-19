@@ -14,7 +14,7 @@ and 3D visualization.<br>
 **Artworks:** Component responsible for fetching data from the API, filtering, and displaying a list of artworks.<br>
 **Artwork:** Reusable component that displays the details of an individual artwork and 
 allows removal of artworks.<br>
-**Flower:** Reusable component that represents a 3D flower with rotating animation.
+**Flower:** Reusable component that represents a 3D flower with rotating animation.<br>
 We used also:<br>
 **CSS Stylesheets:** App.css, ArtCard.css and NavBar.css to custom styles for the application.
 
