@@ -7,15 +7,15 @@ The Art Institute of Chicago's API provides access to the institute's art collec
 Data is accessible via HTTP requests and returned in JSON format. For this project, we used the endpoint that retrieves information about artworks.
 ## II. Role of Each Component
 **App:** The main component that manages the global state of the application and 
-orchestrates other components.
+orchestrates other components.<br>
 **NavBar:** Component for the application's navigation bar, including search functionality 
-and 3D visualization.
-**InputWithLabel:** Reusable component for input fields with labels.
-**Artworks:** Component responsible for fetching data from the API, filtering, and displaying a list of artworks.
+and 3D visualization.<br>
+**InputWithLabel:** Reusable component for input fields with labels.<br>
+**Artworks:** Component responsible for fetching data from the API, filtering, and displaying a list of artworks.<br>
 **Artwork:** Reusable component that displays the details of an individual artwork and 
-allows removal of artworks.
+allows removal of artworks.<br>
 **Flower:** Reusable component that represents a 3D flower with rotating animation.
-We used also:
+We used also:<br>
 **CSS Stylesheets:** App.css, ArtCard.css and NavBar.css to custom styles for the application.
 
 
